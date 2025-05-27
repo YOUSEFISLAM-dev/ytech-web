@@ -160,3 +160,49 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
   alert(currentLang === 'ar' ? 'تم إرسال رسالتك بنجاح!' : 'Your message has been sent!');
   this.reset();
 });
+
+// 3D tilt effect for cards that follow mouse pointer
+function add3DMouseFollowEffect() {
+  const cards = [...document.querySelectorAll('.service-card, .course-card, .team-member')];
+  
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'none';
+    });
+    
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const cardCenterX = rect.left + rect.width / 2;
+      const cardCenterY = rect.top + rect.height / 2;
+      
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      
+      const deltaX = mouseX - cardCenterX;
+      const deltaY = mouseY - cardCenterY;
+      
+      // Calculate rotation angles (max 20 degrees)
+      const rotateY = (deltaX / rect.width) * 20;
+      const rotateX = -(deltaY / rect.height) * 20;
+      
+      // Apply 3D transform
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    });
+  });
+}
+
+// Initialize 3D effects after DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(add3DMouseFollowEffect, 100); // Small delay to ensure cards are rendered
+});
+
+// Re-apply effects when cards are dynamically added
+const observer2 = new MutationObserver(() => {
+  add3DMouseFollowEffect();
+});
+observer2.observe(document.body, { childList: true, subtree: true });

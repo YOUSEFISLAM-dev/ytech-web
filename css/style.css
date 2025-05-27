@@ -212,9 +212,10 @@ nav a.active, nav a:hover, nav a:focus {
   border-radius: 18px;
   padding: 2.5rem 1.5rem 2rem 1.5rem;
   transition: transform var(--transition), box-shadow var(--transition), border var(--transition);
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 .service-card:hover, .course-card:hover {
-  transform: translateY(-12px) scale(1.05);
   box-shadow: 0 12px 32px 0 rgba(94,96,206,0.18);
   border: 1.5px solid var(--accent2);
 }
@@ -269,9 +270,10 @@ nav a.active, nav a:hover, nav a:focus {
   flex-direction: column;
   align-items: center;
   transition: transform var(--transition), box-shadow var(--transition);
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 .team-member:hover {
-  transform: translateY(-6px) scale(1.04);
   box-shadow: 0 8px 24px rgba(94,96,206,0.16);
 }
 .team-name {
