@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Y-techs | AI, Web, Mobile, PC & 3D</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/images/favicon.ico">
+</head>
+<body>
+  <header>
+    <div class="logo">Y-techs</div>
+    <nav id="main-nav">
+      <ul>
+        <li><a href="#home" data-i18n="nav_home">Home</a></li>
+        <li><a href="#services" data-i18n="nav_services">Services</a></li>
+        <li><a href="#courses" data-i18n="nav_courses">Courses</a></li>
+        <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="lang-toggle" aria-label="Switch Language">AR</button>
+    <button id="menu-toggle" aria-label="Open Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+  <main>
+    <section id="home" class="hero-section">
+      <canvas id="bg3d"></canvas>
+      <div class="hero-content">
+        <h1 data-i18n="hero_title">Innovate with Y-techs</h1>
+        <p data-i18n="hero_subtitle">AI, Web, Mobile, PC Apps & 3D Experiences</p>
+        <a href="#services" class="cta-btn" data-i18n="hero_cta">Explore Services</a>
+      </div>
+    </section>
+    <section id="services" class="animated-section">
+      <h2 data-i18n="services_title">Our Services</h2>
+      <div class="section-divider"></div>
+      <div class="services-list">
+        <!-- Service cards will be populated here -->
+      </div>
+    </section>
+    <section id="courses" class="animated-section">
+      <h2 data-i18n="courses_title">Courses</h2>
+      <div class="section-divider"></div>
+      <div class="courses-list">
+        <!-- Course cards will be populated here -->
+      </div>
+    </section>
+    <section id="about" class="animated-section">
+      <h2 data-i18n="about_title">About Us</h2>
+      <div class="section-divider"></div>
+      <div class="about-content">
+        <div class="about-story">
+          <p data-i18n="about_story">Y-techs is a team of passionate technologists delivering innovative solutions in AI, web, mobile, PC, and 3D. We believe in empowering businesses and individuals with cutting-edge technology.</p>
+        </div>
+        <div class="about-team">
+          <h3>Our Team</h3>
+          <div class="team-grid">
+            <div class="team-member">
+              <img src="assets/images/avatar1.png" alt="Team Member" width="72" height="72" style="border-radius:50%;background:#23233a;">
+              <div class="team-name">Alex</div>
+              <div class="team-role">AI Lead</div>
+            </div>
+            <div class="team-member">
+              <img src="assets/images/avatar2.png" alt="Team Member" width="72" height="72" style="border-radius:50%;background:#23233a;">
+              <div class="team-name">Sara</div>
+              <div class="team-role">Web Expert</div>
+            </div>
+            <div class="team-member">
+              <img src="assets/images/avatar3.png" alt="Team Member" width="72" height="72" style="border-radius:50%;background:#23233a;">
+              <div class="team-name">Omar</div>
+              <div class="team-role">3D/UX</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-timeline">
+          <h3>Our Journey</h3>
+          <ul class="timeline">
+            <li><span>2021</span> - Y-techs founded</li>
+            <li><span>2022</span> - Launched first AI product</li>
+            <li><span>2023</span> - Expanded to 3D and mobile</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="animated-section">
+      <h2 data-i18n="contact_title">Contact</h2>
+      <div class="section-divider"></div>
+      <form id="contact-form" autocomplete="off" aria-label="Contact form">
+        <label for="name" data-i18n="contact_name_label">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Your Name" data-i18n-placeholder="contact_name_placeholder">
+        <label for="email" data-i18n="contact_email_label">Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com" data-i18n-placeholder="contact_email_placeholder">
+        <label for="message" data-i18n="contact_message_label">Message</label>
+        <textarea id="message" name="message" required placeholder="Type your message..." data-i18n-placeholder="contact_message_placeholder"></textarea>
+        <button type="submit" data-i18n="contact_submit">Send</button>
+      </form>
+      <div class="contact-info">
+        <div class="contact-details">
+          <div><strong>Email:</strong> <a href="mailto:info@ytechs.com">info@ytechs.com</a></div>
+          <div><strong>Phone:</strong> <a href="tel:+123456789">+1 234 567 89</a></div>
+        </div>
+        <div class="contact-social">
+          <a href="#" aria-label="Twitter"><img src="assets/icons/twitter.svg" alt="Twitter"></a>
+          <a href="#" aria-label="LinkedIn"><img src="assets/icons/linkedin.svg" alt="LinkedIn"></a>
+          <a href="#" aria-label="GitHub"><img src="assets/icons/github.svg" alt="GitHub"></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div>&copy; <span id="year"></span> Y-techs. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#" aria-label="Twitter"><img src="assets/icons/twitter.svg" alt="Twitter"></a>
+      <a href="#" aria-label="LinkedIn"><img src="assets/icons/linkedin.svg" alt="LinkedIn"></a>
+      <a href="#" aria-label="GitHub"><img src="assets/icons/github.svg" alt="GitHub"></a>
+    </div>
+  </footer>
+  <script src="js/three-bg.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
