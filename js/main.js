@@ -160,3 +160,32 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
   alert(currentLang === 'ar' ? 'تم إرسال رسالتك بنجاح!' : 'Your message has been sent!');
   this.reset();
 });
+
+// 3D tilt effect for cards
+function add3DTiltEffect(cardSelector) {
+  document.addEventListener('mousemove', function(e) {
+    document.querySelectorAll(cardSelector).forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const cardX = rect.left + rect.width / 2;
+      const cardY = rect.top + rect.height / 2;
+      const deltaX = e.clientX - cardX;
+      const deltaY = e.clientY - cardY;
+      const rotateX = (deltaY / rect.height) * 18; // max 18deg
+      const rotateY = -(deltaX / rect.width) * 18;
+      card.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+  });
+  document.addEventListener('mouseleave', function() {
+    document.querySelectorAll(cardSelector).forEach(card => {
+      card.style.transform = '';
+    });
+  });
+  document.querySelectorAll(cardSelector).forEach(card => {
+    card.addEventListener('mouseleave', function() {
+      card.style.transform = '';
+    });
+  });
+}
+
+add3DTiltEffect('.service-card');
+add3DTiltEffect('.course-card');
