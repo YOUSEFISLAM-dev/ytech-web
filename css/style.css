@@ -207,13 +207,15 @@ nav a.active, nav a:hover, nav a:focus {
 }
 .service-card, .course-card {
   background: var(--card-bg);
-  border: 1px solid rgba(94,96,206,0.10);
-  box-shadow: var(--shadow);
   border-radius: 18px;
   padding: 2.5rem 1.5rem 2rem 1.5rem;
+  border: 1px solid rgba(94,96,206,0.10);
+  box-shadow: var(--shadow);
+  text-align: center;
   transition: transform var(--transition), box-shadow var(--transition), border var(--transition);
   transform-style: preserve-3d;
   will-change: transform;
+  transform-origin: center center;
 }
 .service-card:hover, .course-card:hover {
   box-shadow: 0 12px 32px 0 rgba(94,96,206,0.18);
@@ -272,6 +274,7 @@ nav a.active, nav a:hover, nav a:focus {
   transition: transform var(--transition), box-shadow var(--transition);
   transform-style: preserve-3d;
   will-change: transform;
+  transform-origin: center center;
 }
 .team-member:hover {
   box-shadow: 0 8px 24px rgba(94,96,206,0.16);

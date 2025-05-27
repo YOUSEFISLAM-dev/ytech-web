@@ -139,6 +139,9 @@ courses.forEach(c => {
   coursesList.appendChild(card);
 });
 
+// Apply 3D effects after cards are created
+add3DMouseFollowEffect();
+
 // About content
 const aboutContent = document.querySelector('.about-content');
 aboutContent.innerHTML = `
@@ -163,14 +166,21 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
 
 // 3D tilt effect for cards that follow mouse pointer
 function add3DMouseFollowEffect() {
-  const cards = [...document.querySelectorAll('.service-card, .course-card, .team-member')];
+  const cards = document.querySelectorAll('.service-card, .course-card, .team-member');
+  console.log('Adding 3D effect to', cards.length, 'cards'); // Debug log
   
   cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      card.style.transition = 'none';
-    });
+    // Remove existing event listeners to avoid duplicates
+    card.removeEventListener('mouseenter', card._mouseEnterHandler);
+    card.removeEventListener('mousemove', card._mouseMoveHandler);
+    card.removeEventListener('mouseleave', card._mouseLeaveHandler);
     
-    card.addEventListener('mousemove', (e) => {
+    // Define handlers
+    card._mouseEnterHandler = () => {
+      card.style.transition = 'none';
+    };
+    
+    card._mouseMoveHandler = (e) => {
       const rect = card.getBoundingClientRect();
       const cardCenterX = rect.left + rect.width / 2;
       const cardCenterY = rect.top + rect.height / 2;
@@ -181,28 +191,30 @@ function add3DMouseFollowEffect() {
       const deltaX = mouseX - cardCenterX;
       const deltaY = mouseY - cardCenterY;
       
-      // Calculate rotation angles (max 20 degrees)
-      const rotateY = (deltaX / rect.width) * 20;
-      const rotateX = -(deltaY / rect.height) * 20;
+      // Calculate rotation angles (max 15 degrees for smoother effect)
+      const rotateY = (deltaX / rect.width) * 15;
+      const rotateX = -(deltaY / rect.height) * 15;
       
       // Apply 3D transform
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-    });
+    };
     
-    card.addEventListener('mouseleave', () => {
-      card.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+    card._mouseLeaveHandler = () => {
+      card.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
       card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-    });
+    };
+    
+    // Add event listeners
+    card.addEventListener('mouseenter', card._mouseEnterHandler);
+    card.addEventListener('mousemove', card._mouseMoveHandler);
+    card.addEventListener('mouseleave', card._mouseLeaveHandler);
   });
 }
 
 // Initialize 3D effects after DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(add3DMouseFollowEffect, 100); // Small delay to ensure cards are rendered
+  // Apply effects after a brief delay to ensure all elements are rendered
+  setTimeout(() => {
+    add3DMouseFollowEffect();
+  }, 200);
 });
-
-// Re-apply effects when cards are dynamically added
-const observer2 = new MutationObserver(() => {
-  add3DMouseFollowEffect();
-});
-observer2.observe(document.body, { childList: true, subtree: true });
