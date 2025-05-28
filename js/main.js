@@ -5,7 +5,7 @@ const translations = {
   en: {
     nav_home: "Home",
     nav_services: "Services",
-    nav_courses: "Courses",
+    nav_courses: "Courses (Soon)",
     nav_about: "About Us",
     nav_contact: "Contact",
     hero_title: "Innovate with Y-techs",
@@ -26,7 +26,7 @@ const translations = {
   ar: {
     nav_home: "الرئيسية",
     nav_services: "الخدمات",
-    nav_courses: "الدورات",
+    nav_courses: "الدورات (قريباً)",
     nav_about: "من نحن",
     nav_contact: "تواصل",
     hero_title: "ابتكر مع واي-تيكس",
