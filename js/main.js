@@ -211,6 +211,29 @@ function add3DMouseFollowEffect() {
   });
 }
 
+// THEME TOGGLE FUNCTIONALITY
+const themeSwitch = document.getElementById('theme-switch');
+const setTheme = (theme) => {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  if (themeSwitch) themeSwitch.checked = (theme === 'light');
+};
+
+// Initialize theme from localStorage or system preference
+(function initTheme() {
+  let savedTheme = localStorage.getItem('theme');
+  if (!savedTheme) {
+    savedTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+  setTheme(savedTheme);
+})();
+
+if (themeSwitch) {
+  themeSwitch.addEventListener('change', (e) => {
+    setTheme(e.target.checked ? 'light' : 'dark');
+  });
+}
+
 // Initialize 3D effects after DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   // Apply effects after a brief delay to ensure all elements are rendered
