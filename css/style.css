@@ -226,7 +226,7 @@ nav a.active, nav a:hover, nav a:focus {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: linear-gradient(120deg, #23233a 60%, #5e60ce 100%);
+  background: var(--bg);
 }
 #bg3d {
   position: absolute;
@@ -256,7 +256,7 @@ nav a.active, nav a:hover, nav a:focus {
 }
 .hero-content p {
   font-size: 1.3rem;
-  color: #e0e0ff;
+  color: var(--text-secondary);
   margin-bottom: 2.5rem;
 }
 .cta-btn {
@@ -344,7 +344,7 @@ nav a.active, nav a:hover, nav a:focus {
   margin-bottom: 0.7rem;
 }
 .service-card p, .course-card p {
-  color: #e0e0ff;
+  color: var(--text-secondary);
   font-size: 1.05rem;
 }
 
@@ -355,10 +355,11 @@ nav a.active, nav a:hover, nav a:focus {
   gap: 2rem;
   align-items: center;
   text-align: center;
-  background: rgba(94,96,206,0.04);
+  background: var(--glass);
   border-radius: 12px;
   padding: 2rem 1.5rem;
   box-shadow: 0 2px 8px 0 rgba(94,96,206,0.08);
+  color: var(--text);
 }
 .about-team {
   margin: 2.5rem 0 1.5rem 0;
@@ -421,7 +422,7 @@ nav a.active, nav a:hover, nav a:focus {
   position: relative;
   padding-left: 2.2em;
   margin-bottom: 1.2em;
-  color: #e0e0ff;
+  color: var(--text-secondary);
   font-size: 1.05rem;
 }
 .timeline li span {
@@ -493,7 +494,7 @@ nav a.active, nav a:hover, nav a:focus {
   gap: 1.2rem;
 }
 .contact-details {
-  color: #e0e0ff;
+  color: var(--text-secondary);
   font-size: 1.08rem;
   margin-bottom: 0.5rem;
 }
@@ -522,8 +523,8 @@ nav a.active, nav a:hover, nav a:focus {
 
 /* Footer */
 footer {
-  background: rgba(24,24,36,0.98);
-  color: #aaa;
+  background: var(--primary);
+  color: var(--text-secondary);
   text-align: center;
   padding: 1.5rem 1rem 1rem 1rem;
   margin-top: 3rem;
