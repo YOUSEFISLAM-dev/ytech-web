@@ -4,3 +4,6 @@
  .  SVG Repo
  .   Dazzle UI
  .    UPLOADER: SVG Repo
+  ----------------------------
+
+# you cannot use or reuse or edit this project
