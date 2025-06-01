@@ -331,6 +331,12 @@ nav a.active, nav a:hover, nav a:focus {
   box-shadow: 0 12px 32px 0 rgba(94,96,206,0.18);
   border: 1.5px solid var(--accent2);
 }
+
+.service-card[style*="cursor: pointer"]:hover {
+  box-shadow: 0 12px 32px 0 rgba(0,201,167,0.25);
+  border: 1.5px solid var(--accent);
+  transform: translateY(-2px);
+}
 .service-icon, .course-icon {
   width: 64px;
   height: 64px;

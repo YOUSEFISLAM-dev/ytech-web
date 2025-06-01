@@ -104,7 +104,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // Example: Populate services and courses (replace with real data)
 const services = [
-  { icon: 'assets/icons/ai.svg', title: {en: 'AI Solutions', ar: 'حلول الذكاء الاصطناعي'}, desc: {en: 'Custom AI for your business.', ar: 'ذكاء اصطناعي مخصص لأعمالك.'} },
+  { icon: 'assets/icons/ai.svg', title: {en: 'AI Solutions', ar: 'حلول الذكاء الاصطناعي'}, desc: {en: 'Custom AI for your business.', ar: 'ذكاء اصطناعي مخصص لأعمالك.'}, href: 'https://yousef-dev.tech/ytech-web/AI-playground/AI/' },
   { icon: 'assets/icons/web.svg', title: {en: 'Web Development', ar: 'تطوير الويب'}, desc: {en: 'Modern, responsive websites.', ar: 'مواقع عصرية متجاوبة.'} },
   { icon: 'assets/icons/mobile.svg', title: {en: 'Mobile Apps', ar: 'تطبيقات الجوال'}, desc: {en: 'iOS & Android apps.', ar: 'تطبيقات iOS و Android.'} },
   { icon: 'assets/icons/pc.svg', title: {en: 'PC Apps', ar: 'تطبيقات الحاسوب'}, desc: {en: 'Cross-platform desktop apps.', ar: 'تطبيقات سطح مكتب متعددة المنصات.'} },
@@ -114,6 +114,15 @@ const servicesList = document.querySelector('.services-list');
 services.forEach(s => {
   const card = document.createElement('div');
   card.className = 'service-card';
+  
+  // If the service has an href, make it clickable
+  if (s.href) {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      window.open(s.href, '_blank');
+    });
+  }
+  
   card.innerHTML = `
     <img src="${s.icon}" alt="" class="service-icon">
     <h3>${s.title[currentLang]}</h3>
